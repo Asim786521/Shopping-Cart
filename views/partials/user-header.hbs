@@ -1,0 +1,53 @@
+ 
+        <!-- header -->
+        <header class="header">
+            <div class="container-fluid px-lg-5">
+                <!-- nav -->
+                <nav class="py-4">
+                    <div id="logo">
+                        <h1> <a href=""><span class="fa fa-bold" aria-hidden="true"></span>ootie User</a></h1>
+                    </div>
+
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu mt-2">
+                        <li class="active"><a href="/">Home</a></li>
+                        {{#if user}}
+
+                     <li><a href="/logout">logout</a></li>
+                     {{else}}
+                        <li><a href="/signup">Signup</a></li>
+                    {{/if}}
+
+                    {{#if user}}
+                 <a style="color: rgb(248, 215, 28);">{{user.lName}}</a>
+
+                    {{else}}
+                        <li><a href="/login">Login</a></li>
+                            
+                    {{/if}}
+                     <li><a   href="/cart">Cart<span class="badge bg-success" id="cart-count">{{cartCount}}</span></a></li>
+                               
+                        <li>
+                            <!-- First Tier Drop Down -->
+                            <label for="drop-2" class="toggle">Drop Down <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                            <a href="#">Drop Down <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <input type="checkbox" id="drop-2" />
+                            <ul>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="shop.html">Shop Now</a></li>
+                                <li><a href="shop-single.html">Single Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <!-- //nav -->
+            </div>
+        </header>
+        <!-- //header -->
+        <!--/banner-->
+       
+        <!--// banner-inner -->
+
+     

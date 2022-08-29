@@ -139,7 +139,7 @@ router.post("/edit-product/:id",  function (req, res) {
     
  var mailOptions = {
     from: 'asimasm61@gmail.com',
-    to:  'asimsalim749@gmail.com ,asimachu345@gmail.com',
+    to:  'asimsalim749@gmail.com ,vighneshjs2015@gmail.com',
     subject: 'Cart price Alert',
     text:'Price of '+req.body.Name+ ' changed to ₹'+req.body.Price
   };

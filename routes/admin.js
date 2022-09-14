@@ -129,21 +129,40 @@ router.get("/edit-product/:id",  async function (req, res) {
 
 router.post("/edit-product/:id",  function (req, res) {
   let productId = req.params.id;
-  
-  console.log(req.body.Price)
-  // let user =  db
-  //       .get()
-  //       .collection(collections.USERS_COLLECTION).findOne({_id:objectId(_id) }, { Email: 'asimsalim749@gmail.com'})
-  // if(user){
-  
-    
- var mailOptions = {
-    from: 'asimasm61@gmail.com',
-    to:  'asimsalim749@gmail.com ,vighneshjs2015@gmail.com',
-    subject: 'Cart price Alert',
-    text:'Price of '+req.body.Name+ ' changed to ₹'+req.body.Price
-  };
+   console.log(req.body.Price)
+   
+  let product = await adminHelper.getProductDetails(productId);
 
+      // var user=  db.get()
+      //  .collection(collections.USERS_COLLECTION).findOne()
+  
+ 
+    
+ if(req.body.Price>product.Price){
+ var mailOptions = {
+   
+    from: 'asimasm61@gmail.com',
+    to:  'asimsalim749@gmail.com ,asimachu345@gmail.com',
+    subject: 'Cart price Alert',
+
+ 
+    text:'Price of '+req.body.Name+ ' increased to ₹'+req.body.Price
+    
+  };
+ }else {
+  
+  var mailOptions = {
+   
+    from: 'asimasm61@gmail.com',
+    to:  'asimsalim749@gmail.com ,asimachu345@gmail.com',
+    subject: 'Cart price Alert',
+
+ 
+    text:'Price of '+req.body.Name+ ' dropped to ₹'+req.body.Price
+    
+  };
+ }
+   
  transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
@@ -151,8 +170,6 @@ router.post("/edit-product/:id",  function (req, res) {
     console.log('Price changed to ' + info.response);
   }
 });
-
- 
 
   adminHelper.updateProduct(productId, req.body).then(() => {
     if (req.files) {

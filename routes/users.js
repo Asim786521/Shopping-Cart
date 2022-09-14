@@ -131,6 +131,7 @@ router.get('/signup',(req,res)=>{
       .then((orderId) => {
         if (req.body["payment-method"] === "COD") {
           res.json({ codSuccess: true });
+          console.log("COD Choosed")
         } else {
           userHelpers.generateRazorpay(orderId, totalPrice).then((response) => {
             res.json(response);

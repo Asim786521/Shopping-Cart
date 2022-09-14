@@ -127,7 +127,7 @@ router.get("/edit-product/:id",  async function (req, res) {
   res.render("admin/edit-products", { admin: true, product  });
 });
 
-router.post("/edit-product/:id",  function (req, res) {
+router.post("/edit-product/:id", async function (req, res) {
   let productId = req.params.id;
    console.log(req.body.Price)
    
@@ -155,7 +155,7 @@ router.post("/edit-product/:id",  function (req, res) {
    
     from: 'asimasm61@gmail.com',
     to:  'asimsalim749@gmail.com ,asimachu345@gmail.com',
-    subject: 'Cart price Alert',
+    subject: 'Product price Alert',
 
  
     text:'Price of '+req.body.Name+ ' dropped to ₹'+req.body.Price
